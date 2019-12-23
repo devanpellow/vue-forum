@@ -52,17 +52,18 @@ export default {
   },
   methods: {
     addPost () {
+      const postId = 'greatPost' + Math.random()
       const post = {
         text: this.newPostText,
         publishedAt: Math.floor(Date.now() / 1000),
         threadId: this.id,
-        userId: 'ALXhxjwgY9PinwNGHpfai6OWyDu2'
+        userId: 'ALXhxjwgY9PinwNGHpfai6OWyDu2',
+        '.key': postId
       }
-      const postId = 'greatPost' + Math.random()
-      sourceData.posts[postId] = post
-      this.thread.posts[postId] = postId
-
-      console.log(sourceData.posts, this.thread.posts)
+      this.$set(sourceData.posts, postId, post)
+      this.$set(this.thread.posts, postId, postId)
+      this.$set(sourceData.users[post.userId].posts, postId, postId)
+      this.newPostText = ''
     }
   }
 }
