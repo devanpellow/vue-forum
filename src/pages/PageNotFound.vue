@@ -1,8 +1,10 @@
 <template>
-  <div class="col-full">
-    <h1>Whoops!</h1>
-    <p>Sorry, can't seem to find that page. Could be something you did, or something we did. 
-      But let's be honest. It was probably us. Let's go back <router-link :to="{name: 'Home'}">home</router-link></p>
+  <div class="col-full" :class="$style.centered">
+    <h1 :class="$style.headingLarge">Whoops!</h1>
+    <p :class="$style.textLarge">
+      Sorry, can't seem to find that page. Could be something you did, or something we did. 
+      But let's be honest. It was probably us. Let's go back <router-link :to="{name: 'Home'}">home</router-link>
+    </p>
   </div>  
 </template>
 
@@ -12,15 +14,15 @@
   }
 </script>
 
-<style scoped>
-  h1 {
+<style module>
+  .headingLarge {
     font-size: 100px;
   }
-  p {
+  .textLarge {
     font-size: 30px;
     font-weight: 100;
   }
-  div {
+  .centered {
     display: flex;
     flex-direction: column;
     align-content: center;
