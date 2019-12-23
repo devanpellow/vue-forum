@@ -1,21 +1,26 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import PageHome from '@/pages/PageHome'
-import PageThreadShow from '@/pages/PageThreadShow'
+import Home from '@/pages/PageHome'
+import ThreadShow from '@/pages/PageThreadShow'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
+      path: '*',
+      name: 'NotFound',
+      redirect: {name: 'Home'}
+    },
+    {
       path: '/',
-      name: 'Hello',
-      component: PageHome
+      name: 'Home',
+      component: Home
     },
     {
       path: '/thread/:id',
-      name: 'PageThreadShow',
-      component: PageThreadShow,
+      name: 'ThreadShow',
+      component: ThreadShow,
       props: true
     }
   ],
