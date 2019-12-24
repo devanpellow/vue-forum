@@ -8,9 +8,9 @@
       </p>
       <p 
         class="text-faded text-xsmall"
-        :title="thread.publishedAt | humanFriendlyDate"
+        :title="thread.publishedAt"
       >
-          By <a href="#">{{user.name}}</a>, {{thread.publishedAt | diffForHumans}}.
+          By <a href="#">{{user.name}}</a>, <AppDate :timestamp="thread.publishedAt"/>.
       </p>
     </div>
 
@@ -35,9 +35,12 @@
 
 <script>
   import sourceData from '@/data'
-  import moment from 'moment'
+  import AppDate from './AppDate'
 
   export default {
+    components: {
+      AppDate
+    },
     props: {
       thread: {
         required: true,
@@ -51,15 +54,6 @@
       },
       user () {
         return sourceData.users[this.thread.userId]
-      }
-    },
-
-    filters: {
-      humanFriendlyDate (date) {
-        return moment.unix(date).format('MMMM Do YYYY, h:mm:ss a')
-      },
-      diffForHumans (date) {
-        return moment.unix(date).fromNow()
       }
     }
   }
