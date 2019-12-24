@@ -6,8 +6,11 @@
           {{thread.title}}
         </router-link>
       </p>
-      <p class="text-faded text-xsmall">
-          By <a href="#">{{user.name}}</a>, {{humanFriendlyDate}}.
+      <p 
+        class="text-faded text-xsmall"
+        :title="thread.publishedAt | humanFriendlyDate"
+      >
+          By <a href="#">{{user.name}}</a>, {{thread.publishedAt | diffForHumans}}.
       </p>
     </div>
 
@@ -48,9 +51,15 @@
       },
       user () {
         return sourceData.users[this.thread.userId]
+      }
+    },
+
+    filters: {
+      humanFriendlyDate (date) {
+        return moment.unix(date).format('MMMM Do YYYY, h:mm:ss a')
       },
-      humanFriendlyDate () {
-        return moment(this.thread.publishedAt).format('MMMM Do YYYY, h:mm:ss a')
+      diffForHumans (date) {
+        return moment.unix(date).fromNow()
       }
     }
   }
