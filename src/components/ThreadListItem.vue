@@ -7,7 +7,7 @@
         </router-link>
       </p>
       <p class="text-faded text-xsmall">
-          By <a href="#">{{user.name}}</a>, {{thread.publishedAt}}.
+          By <a href="#">{{user.name}}</a>, {{humanFriendlyDate}}.
       </p>
     </div>
 
@@ -32,6 +32,7 @@
 
 <script>
   import sourceData from '@/data'
+  import moment from 'moment'
 
   export default {
     props: {
@@ -47,6 +48,9 @@
       },
       user () {
         return sourceData.users[this.thread.userId]
+      },
+      humanFriendlyDate () {
+        return moment(this.thread.publishedAt).format('MMMM Do YYYY, h:mm:ss a')
       }
     }
   }
