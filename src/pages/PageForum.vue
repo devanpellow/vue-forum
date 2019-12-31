@@ -6,7 +6,12 @@
            <h1>Cooking</h1>
            <p class="text-lead">Discuss your passion for food and cooking</p>
          </div>
-         <a href="new-thread.html" class="btn-green btn-small">Start a thread!</a>
+         <router-link
+          :to="{name: 'ThreadCreate'}"
+          class="btn-green btn-small"
+         >
+          Start a thread!
+         </router-link>
        </div>
      </div>
      <div class="col-full">
