@@ -7,7 +7,7 @@
            <p class="text-lead">Discuss your passion for food and cooking</p>
          </div>
          <router-link
-          :to="{name: 'ThreadCreate'}"
+          :to="{name: 'ThreadCreate', params: {forum: this.forum}}"
           class="btn-green btn-small"
          >
           Start a thread!

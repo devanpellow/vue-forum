@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { threadId } from 'worker_threads'
     export default {
       props: {
         forum: {
@@ -42,8 +43,10 @@
             forumId: this.forum['.key'],
             title: this.title,
             text: this.text
+          }).then(thread => {
+            this.$router.push({name: 'ThreadShow', params: {id: thread['.key']}})
           })
-        }
+        },
       }
     }
 </script>

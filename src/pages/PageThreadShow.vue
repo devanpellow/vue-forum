@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="col-large push-top">
+    <div class="col-large push-top col-full">
       <h1>{{thread.title}}</h1>
       <p>
         By <a href="3" class="link-unstyled">Robin</a>. <AppDate :timestamp="thread.publishedAt"/>.
