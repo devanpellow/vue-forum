@@ -9,9 +9,13 @@
     <p class="desktop-only text-small">{{userPostsCount}} posts</p>
   </div>
   <div class="post-content">
-    <div v-if="!editing">
-      {{post.text}}
-    </div>
+    <template v-if="!editing">
+      <div v-if="!editing">
+        {{post.text}}
+      </div>
+      <a @click.prevent="editing = true" href="#" style="margin-left: auto;" class="link-unstyled" title="Make a change"><i class="fa fa-pencil"></i></a>
+    </template>
+   
     <div v-else>
       <PostEditor
         :post="post"
