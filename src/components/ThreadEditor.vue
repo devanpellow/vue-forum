@@ -48,7 +48,7 @@
       save () {
         this.$emit('save', {title: this.form.title, text: this.form.text})
       },
-      cancle () {
+      cancel () {
         this.$emit('cancel')
       }
     }

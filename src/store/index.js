@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import sourceData from '@/data'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -58,6 +59,13 @@ export default new Vuex.Store({
         commit('setPost', {post: newPost, postId: thread.firstPostId})
 
         resolve(newThread)
+      })
+    },
+    updatePost ({state, commit}, {id, text}) {
+      return new Promise((resolve, reject) => {
+        const post = state.posts[id]
+        commit('setPost', {postId: id, post: {...post, text}})
+        resolve(post)
       })
     },
     updateUser ({commit}, user) {
