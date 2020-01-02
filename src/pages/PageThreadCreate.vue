@@ -25,8 +25,8 @@
 <script>
     export default {
       props: {
-        forum: {
-          type: Object,
+        forumId: {
+          type: String,
           required: true
         }
       },
@@ -48,6 +48,11 @@
         },
         cancel (thread) {
           this.$router.push({name: 'Forum', params: {id: this.forum['.key']}})
+        }
+      },
+      computed: {
+        forum () {
+          return this.$store.state.forums[this.forumId]
         }
       }
     }
