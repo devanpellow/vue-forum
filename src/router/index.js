@@ -2,25 +2,31 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/pages/PageHome'
 import ThreadShow from '@/pages/PageThreadShow'
-import PageNotFound from '@/pages/PageNotFound'
-import PageForum from '@/pages/PageForum'
-import Category from '@/pages/PageCategory'
-import Profile from '@/pages/PageProfile'
 import ThreadCreate from '@/pages/PageThreadCreate'
-
+import ThreadEdit from '@/pages/PageThreadEdit'
+import Category from '@/pages/PageCategory'
+import Forum from '@/pages/PageForum'
+import Profile from '@/pages/PageProfile'
+import NotFound from '@/pages/PageNotFound'
 Vue.use(Router)
-
 export default new Router({
   routes: [
-    {
-      path: '*',
-      name: 'NotFound',
-      component: PageNotFound
-    },
     {
       path: '/',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/category/:id',
+      name: 'Category',
+      component: Category,
+      props: true
+    },
+    {
+      path: '/forum/:id',
+      name: 'Forum',
+      component: Forum,
+      props: true
     },
     {
       path: '/thread/create/:forumId',
@@ -35,15 +41,9 @@ export default new Router({
       props: true
     },
     {
-      path: '/forum/:id',
-      name: 'Forum',
-      component: PageForum,
-      props: true
-    },
-    {
-      path: '/category/:id',
-      name: 'Category',
-      component: Category,
+      path: '/thread/:id/edit',
+      name: 'ThreadEdit',
+      component: ThreadEdit,
       props: true
     },
     {
@@ -57,8 +57,12 @@ export default new Router({
       name: 'ProfileEdit',
       component: Profile,
       props: {edit: true}
+    },
+    {
+      path: '*',
+      name: 'NotFound',
+      component: NotFound
     }
-
   ],
   mode: 'history'
 })
