@@ -72,7 +72,6 @@ export default {
   fetchThreads: ({dispatch}, {ids}) => dispatch('fetchItems', {resource: 'threads', ids, emoji: '🌧'}),
   fetchPosts: ({dispatch}, {ids}) => dispatch('fetchItems', {resource: 'posts', ids, emoji: '💬'}),
   fetchUsers: ({dispatch}, {ids}) => dispatch('fetchItems', {resource: 'users', ids, emoji: '🙋'}),
-
   fetchAllCategories ({state, commit}) {
     console.log('🔥', '🏷', 'all')
     return new Promise((resolve, reject) => {
