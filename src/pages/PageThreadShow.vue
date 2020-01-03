@@ -1,5 +1,5 @@
 <template>
-  <div class="col-full">
+  <div v-if="thread && user" class="col-full">
     <div class="col-large push-top">
       <h1>{{thread.title}}
 
@@ -30,6 +30,7 @@
 import firebase from 'firebase'
 import PostList from '@/components/PostList'
 import PostEditor from '@/components/PostEditor'
+import {countObjectProperties} from '@/utils'
 
 export default {
   components: {
@@ -53,12 +54,7 @@ export default {
       return this.$store.getters.threadRepliesCount(this.thread['.key'])
     },
     contributorsCount () {
-      const replies = Object.keys(this.thread.posts)
-        .filter(postId => postId !== this.thread.firstPostId)
-        .map(postId => this.$store.state.posts[postId])
-
-      const userIds = replies.map(post => post.userId)
-      return userIds.filter((item, index) => index === userIds.indexOf(item)).length
+      return countObjectProperties(this.thread.contributors)
     },
     posts () {
       const postsIds = Object.values(this.thread.posts)
@@ -74,6 +70,18 @@ export default {
       firebase.database().ref('users').child(thread.userId).once('value', snapshot => {
         const user = snapshot.val()
         this.$store.commit('setUser', {userId: snapshot.key, user: {...user, '.key': snapshot.key}})
+      })
+      Object.keys(thread.posts).forEach(postId => {
+        // fetch post
+        firebase.database().ref('posts').child(postId).once('value', snapshot => {
+          const post = snapshot.val()
+          this.$store.commit('setPost', {postId: snapshot.key, post: {...post, '.key': snapshot.key}})
+          // fetch user
+          firebase.database().ref('users').child(post.userId).once('value', snapshot => {
+            const user = snapshot.val()
+            this.$store.commit('setUser', {userId: snapshot.key, user: {...user, '.key': snapshot.key}})
+          })
+        })
       })
     })
   }
