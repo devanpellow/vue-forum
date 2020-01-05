@@ -15,7 +15,7 @@
       <p>
         By <a href="3" class="link-unstyled">{{user.name}}</a>. <AppDate :timestamp="thread.publishedAt"/>.
         <span style="float:right; margin-top: 2px" class="hide-mobile text-faded text-small">
-          {{repliesCount}} {{repliesCount == 1 ? 'reply' : 'replies'}} by {{contributorsCount}} {{contributorsCount == 1 ? 'Contributor' : 'Contributors'}}
+          {{repliesCount}} {{repliesCount == 1 ? 'reply' : 'replies'}} by {{contributorsCount}} {{contributorsCount == 1 ? 'contributor' : 'contributors'}}
         </span>
       </p>
       <PostList :posts="posts"/>
