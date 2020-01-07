@@ -44,6 +44,7 @@ export default {
 </script>
 
 <style>
+  /* @import "./assets/css/style.css"; */
   @import "~nprogress/nprogress.css";
   #nprogress .bar {
     background: #57AD8D
