@@ -8,11 +8,13 @@
 <script>
 import {mapActions} from 'vuex'
 import CategoryList from '@/components/CategoryList'
+import asyncDataStatus from '@/mixins/asyncDataStatus'
 
 export default {
   components: {
     CategoryList
   },
+  mixins: [asyncDataStatus],
 
   computed: {
     categories () {
@@ -25,7 +27,10 @@ export default {
   created () {
     this.fetchAllCategories()
       .then(categories => {
-        categories.forEach(category => this.fetchForums({ids: Object.keys(category.forums)}))
+        Promise.all(categories.map(category => this.fetchForums({ids: Object.keys(category.forums)})))
+      })
+      .then(() => {
+        this.asyncDataStatus_fetched()
       })
   }
 }
