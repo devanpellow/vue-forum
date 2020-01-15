@@ -9,7 +9,7 @@
     "start": "npm run dev",
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src",
-    "seed": "firebase database:set / src/data.json"
+    "db:seed": "firebase database:set / src/data.json -y"
   },
   "dependencies": {
     "firebase": "^7.6.1",
