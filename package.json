@@ -12,7 +12,8 @@
     "db:seed": "firebase database:set / src/data.json -y"
   },
   "dependencies": {
-    "firebase": "^7.6.1",
+    "dotenv": "^8.2.0",
+    "firebase": "^7.6.2",
     "firebase-tools": "^7.11.0",
     "moment": "^2.24.0",
     "nprogress": "^0.2.0",

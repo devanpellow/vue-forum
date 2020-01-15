@@ -11,7 +11,7 @@ Vue.component('AppDate', AppDate)
 Vue.config.productionTip = false
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
+var firebaseConfig = {
   apiKey: 'AIzaSyB4cAxc9PVy58bCEvNbD0ku5SbWbzd1TBg',
   authDomain: 'vue-school-forum-c9233.firebaseapp.com',
   databaseURL: 'https://vue-school-forum-c9233.firebaseio.com',
