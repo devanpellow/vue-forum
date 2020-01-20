@@ -34,6 +34,12 @@ export default {
         })
     })
   },
+  registerUserWithEmailAndPassword ({dispatch}, {email, name, username, password, avatar = null}) {
+    return firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then(user => {
+        return dispatch('createUser', {id: user.user.uid, email, name, username, password, avatar})
+      })
+  },
   createThread ({state, commit, dispatch}, {text, title, forumId}) {
     return new Promise((resolve, reject) => {
       const threadId = firebase.database().ref('threads').push().key
@@ -108,6 +114,14 @@ export default {
 
   updateUser ({commit}, user) {
     commit('setUser', {userId: user['.key'], user})
+  },
+
+  fetchAuthUser ({dispatch, commit}) {
+    const userId = firebase.auth().currentUser.uid
+    dispatch('fetchUser', {id: userId})
+      .then(() => {
+        commit('setAuthId', userId)
+      })
   },
 
   fetchCategory: ({dispatch}, {id}) => dispatch('fetchItem', {resource: 'categories', id, emoji: '🏷'}),

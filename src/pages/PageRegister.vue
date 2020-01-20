@@ -43,33 +43,28 @@
 </template>
 
 <script>
-  import firebase from 'firebase'
-  export default {
-    data () {
-      return {
-        form: {
-          name: null,
-          username: null,
-          email: null,
-          password: null,
-          avatar: null
+    export default {
+      data () {
+        return {
+          form: {
+            name: null,
+            username: null,
+            email: null,
+            password: null,
+            avatar: null
+          }
         }
+      },
+      methods: {
+        register () {
+          this.$store.dispatch('registerUserWithEmailAndPassword', this.form)
+            .then(() => this.$router.push('/'))
+        }
+      },
+      created () {
+        this.$emit('ready')
       }
-    },
-    methods: {
-      register () {
-        firebase.auth().createUserWithEmailAndPassword(this.form.email, this.form.password)
-          .then(user => {
-            return this.$store.dispatch('createUser', {id: user.uid, ...this.fo})
-          })
-        this.$store.dispatch('registerUserWithEmailAndPassword', this.form)
-          .then(() => this.$router.push('/'))
-      }
-    },
-    created () {
-      this.$emit('ready')
     }
-  }
 </script>
 
 <style scoped>
