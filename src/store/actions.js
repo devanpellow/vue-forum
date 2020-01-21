@@ -36,8 +36,8 @@ export default {
   },
   registerUserWithEmailAndPassword ({dispatch}, {email, name, username, password, avatar = null}) {
     return firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then(user => {
-        return dispatch('createUser', {id: user.user.uid, email, name, username, password, avatar})
+      .then(({user}) => {
+        return dispatch('createUser', {id: user.uid, email, name, username, password, avatar})
       })
   },
   createThread ({state, commit, dispatch}, {text, title, forumId}) {
@@ -72,6 +72,17 @@ export default {
           resolve(state.threads[threadId])
         })
     })
+  },
+
+  signInWithEmailAndPassword (context, {email, password}) {
+    return firebase.auth().signInWithEmailAndPassword(email, password)
+  },
+
+  signOut ({commit}) {
+    return firebase.auth().signOut()
+      .then(() => {
+        commit('setAuthId', null)
+      })
   },
 
   updateThread ({state, commit, dispatch}, {title, text, id}) {
