@@ -21,26 +21,6 @@ export default {
       })
   },
 
-  createUser ({state, commit}, {id, email, name, username, avatar = null}) {
-    return new Promise((resolve, reject) => {
-      const registeredAt = Math.floor(Date.now() / 1000)
-      const usernameLower = username.toLowerCase()
-      email = email.toLowerCase()
-      const user = {avatar, email, name, username, usernameLower, registeredAt}
-      firebase.database().ref('users').child(id).set(user)
-        .then(() => {
-          commit('setItem', {resource: 'users', id: id, item: user})
-          resolve(state.users[id])
-        })
-    })
-  },
-  registerUserWithEmailAndPassword ({dispatch}, {email, name, username, password, avatar = null}) {
-    return firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then(user => {
-        return dispatch('createUser', {id: user.uid, email, name, username, password, avatar})
-      })
-      .then(() => dispatch('fetchAuthUser'))
-  },
   createThread ({state, commit, dispatch}, {text, title, forumId}) {
     return new Promise((resolve, reject) => {
       const threadId = firebase.database().ref('threads').push().key
@@ -73,6 +53,28 @@ export default {
           resolve(state.threads[threadId])
         })
     })
+  },
+
+  createUser ({state, commit}, {id, email, name, username, avatar = null}) {
+    return new Promise((resolve, reject) => {
+      const registeredAt = Math.floor(Date.now() / 1000)
+      const usernameLower = username.toLowerCase()
+      email = email.toLowerCase()
+      const user = {avatar, email, name, username, usernameLower, registeredAt}
+      firebase.database().ref('users').child(id).set(user)
+        .then(() => {
+          commit('setItem', {resource: 'users', id: id, item: user})
+          resolve(state.users[id])
+        })
+    })
+  },
+
+  registerUserWithEmailAndPassword ({dispatch}, {email, name, username, password, avatar = null}) {
+    return firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then(user => {
+        return dispatch('createUser', {id: user.uid, email, name, username, password, avatar})
+      })
+      .then(() => dispatch('fetchAuthUser'))
   },
 
   signInWithEmailAndPassword (context, {email, password}) {
@@ -109,10 +111,12 @@ export default {
         at: Math.floor(Date.now() / 1000),
         by: state.authId
       }
+
       const updates = {}
       updates[`posts/${thread.firstPostId}/text`] = text
       updates[`posts/${thread.firstPostId}/edited`] = edited
       updates[`threads/${id}/title`] = title
+
       firebase.database().ref().update(updates)
         .then(() => {
           commit('setThread', {thread: {...thread, title}, threadId: id})
@@ -129,6 +133,7 @@ export default {
         at: Math.floor(Date.now() / 1000),
         by: state.authId
       }
+
       const updates = {text, edited}
       firebase.database().ref('posts').child(id).update(updates)
         .then(() => {
@@ -145,6 +150,7 @@ export default {
   fetchAuthUser ({dispatch, commit}) {
     const userId = firebase.auth().currentUser.uid
     return new Promise((resolve, reject) => {
+      // check if user exists in the database
       firebase.database().ref('users').child(userId).once('value', snapshot => {
         if (snapshot.exists()) {
           return dispatch('fetchUser', {id: userId})
