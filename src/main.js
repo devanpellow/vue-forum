@@ -6,20 +6,21 @@ import App from './App'
 import router from './router'
 import store from '@/store'
 import AppDate from '@/components/AppDate'
+
 Vue.component('AppDate', AppDate)
 
 Vue.config.productionTip = false
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
-  apiKey: 'AIzaSyB4cAxc9PVy58bCEvNbD0ku5SbWbzd1TBg',
-  authDomain: 'vue-school-forum-c9233.firebaseapp.com',
-  databaseURL: 'https://vue-school-forum-c9233.firebaseio.com',
-  projectId: 'vue-school-forum-c9233',
-  storageBucket: 'vue-school-forum-c9233.appspot.com',
-  messagingSenderId: '882404549440',
-  appId: '1:882404549440:web:5d8d14128e7d18e9f210a5',
-  measurementId: 'G-W6T0QBP7TY'
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.FIREBASE_DATABASE_URL,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_ID,
+  appId: process.env.FIREBASE_APP_ID,
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID
 }
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig)
