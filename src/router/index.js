@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/pages/PageHome'
 import ThreadShow from '@/pages/PageThreadShow'
+import Profile from '@/pages/PageProfile'
 import PageNotFound from '@/pages/PageNotFound'
 import PageForum from '@/pages/PageForum'
 import Category from '@/pages/PageCategory'
@@ -14,6 +15,12 @@ export default new Router({
       path: '*',
       name: 'NotFound',
       component: PageNotFound
+    },
+    {
+      path: '/me',
+      name: 'Profile',
+      component: Profile,
+      props: true
     },
     {
       path: '/',
