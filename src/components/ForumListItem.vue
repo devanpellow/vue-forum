@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import {countObjectProperties} from '@/utils'
 
 export default {
   props: {
@@ -29,7 +30,7 @@ export default {
   },
   computed: {
     threadCount () {
-      return this.forum.threads ? Object.values(this.forum.threads).length : 0
+      return countObjectProperties(this.forum.threads)
     }
   }
 }
