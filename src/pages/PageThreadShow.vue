@@ -8,7 +8,6 @@
       </p>
       <PostList :posts="posts"/>
       <PostEditor
-        @save="addPost"
         :threadId="id"
       />
     </div>
@@ -42,15 +41,6 @@ export default {
     posts () {
       const postsIds = Object.values(this.thread.posts)
       return Object.values(this.$store.state.posts).filter(post => postsIds.includes(post['.key']))
-    }
-  },
-  methods: {
-    addPost (eventData) {
-      const post = eventData.post
-      const postId = eventData.post['.key']
-      this.$set(this.$store.state.posts, postId, post)
-      this.$set(this.thread.posts, postId, postId)
-      this.$set(this.$store.state.users[post.userId].posts, postId, postId)
     }
   }
 }
