@@ -10,18 +10,18 @@ Vue.component('AppDate', AppDate)
 Vue.config.productionTip = false
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: 'AIzaSyChTSb8a5xetN0TWFV5lla5ZGKtQv_m234',
-  authDomain: 'forum-aa68a.firebaseapp.com',
-  databaseURL: 'https://forum-aa68a.firebaseio.com',
-  projectId: 'forum-aa68a',
-  storageBucket: 'forum-aa68a.appspot.com',
-  messagingSenderId: '706176004849',
-  appId: '1:706176004849:web:158569204c9c4e88f76f50',
-  measurementId: 'G-BY4T56ZBZY'
+const config = {
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.FIREBASE_DATABASE_URL,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_ID,
+  appId: process.env.FIREBASE_APP_ID,
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID
 }
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig)
+firebase.initializeApp(config)
 firebase.analytics()
 
 /* eslint-disable no-new */
