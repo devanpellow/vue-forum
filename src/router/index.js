@@ -6,6 +6,7 @@ import Profile from '@/pages/PageProfile'
 import ThreadCreate from '@/pages/PageThreadCreate'
 import ThreadEdit from '@/pages/PageThreadEdit'
 import PageNotFound from '@/pages/PageNotFound'
+import Register from '@/pages/PageRegister'
 import PageForum from '@/pages/PageForum'
 import Category from '@/pages/PageCategory'
 
@@ -13,6 +14,11 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register
+    },
     {
       path: '*',
       name: 'NotFound',
