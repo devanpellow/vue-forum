@@ -1,5 +1,6 @@
 import Vue from 'vue'
 
+<<<<<<< HEAD
 const makeAppendChildToParentMutation = ({parent, child}) =>
   (state, {childId, parentId}) => {
     const resource = state[parent][parentId]
@@ -40,4 +41,11 @@ export default {
   appendThreadToForum: makeAppendChildToParentMutation({parent: 'forums', child: 'threads'}),
 
   appendThreadToUser: makeAppendChildToParentMutation({parent: 'users', child: 'threads'})
+=======
+export default {
+  setItem (state, {item, id, resource}) {
+    item['.key'] = id
+    Vue.set(state[resource].items, id, item)
+  }
+>>>>>>> development1
 }

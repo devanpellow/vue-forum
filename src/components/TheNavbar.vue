@@ -36,7 +36,11 @@
                 <router-link :to="{name: 'Profile'}">View Profile</router-link>
               </li>
               <li class="dropdown-menu-item">
+<<<<<<< HEAD
                 <a @click.prevent="$store.dispatch('signOut')">Sign Out</a>
+=======
+                <a @click.prevent="$store.dispatch('auth/signOut')">Sign Out</a>
+>>>>>>> development1
               </li>
             </ul>
           </div>
@@ -64,11 +68,19 @@
     },
     computed: {
       ...mapGetters({
+<<<<<<< HEAD
         'user': 'authUser'
+=======
+        'user': 'auth/authUser'
+>>>>>>> development1
       })
     }
   }
 </script>
 
 <style scoped>
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> development1

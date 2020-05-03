@@ -9,11 +9,18 @@
 </template>
 
 <script>
+<<<<<<< HEAD
   export default {
     created () {
       this.$emit('ready')
     }
+=======
+export default {
+  created () {
+    this.$emit('ready')
+>>>>>>> development1
   }
+}
 </script>
 
 <style module>

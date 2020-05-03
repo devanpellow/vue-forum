@@ -1,5 +1,9 @@
 {
   "projects": {
+<<<<<<< HEAD
     "default": "vue-school-forum-c9233"
+=======
+    "default": "forum-aa68a"
+>>>>>>> development1
   }
 }

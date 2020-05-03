@@ -1,5 +1,6 @@
 <template>
   <div class="flex-grid">
+<<<<<<< HEAD
     <UserProfileCard 
       v-if="!edit"
       :user="user"
@@ -8,6 +9,17 @@
       v-else
       :user="user"
     />
+=======
+    <UserProfileCard
+      v-if="!edit"
+      :user="user"
+    />
+    <UserProfileCardEditor
+      v-else
+      :user="user"
+    />
+
+>>>>>>> development1
     <div class="col-7 push-top">
       <div class="profile-header">
         <span class="text-lead">
@@ -15,6 +27,10 @@
         </span>
         <a href="#">See only started threads?</a>
       </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> development1
       <hr>
       <PostList :posts="userPosts"/>
     </div>
@@ -26,13 +42,21 @@
     import UserProfileCard from '@/components/UserProfileCard'
     import UserProfileCardEditor from '@/components/UserProfileCardEditor'
     import {mapGetters} from 'vuex'
+<<<<<<< HEAD
 
+=======
+    import asyncDataStatus from '@/mixins/asyncDataStatus'
+>>>>>>> development1
     export default {
       components: {
         PostList,
         UserProfileCard,
         UserProfileCardEditor
       },
+<<<<<<< HEAD
+=======
+      mixins: [asyncDataStatus],
+>>>>>>> development1
       props: {
         edit: {
           type: Boolean,
@@ -41,6 +65,7 @@
       },
       computed: {
         ...mapGetters({
+<<<<<<< HEAD
           user: 'authUser'
         }),
         userPosts () {
@@ -50,9 +75,24 @@
           }
           return []
         }
+=======
+          user: 'auth/authUser'
+        }),
+        userPosts () {
+          return this.$store.getters['users/userPosts'](this.user['.key'])
+        }
+      },
+      created () {
+        this.$store.dispatch('posts/fetchPosts', {ids: this.user.posts})
+          .then(() => this.asyncDataStatus_fetched())
+>>>>>>> development1
       }
     }
 </script>
 
 <style scoped>
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> development1

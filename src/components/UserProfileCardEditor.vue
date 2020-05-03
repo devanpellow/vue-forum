@@ -59,6 +59,7 @@
           type: Object
         }
       },
+<<<<<<< HEAD
       computed: {
         userThreadsCount () {
           return this.$store.getters.userThreadsCount(this.user['.key'])
@@ -70,11 +71,28 @@
       data () {
         return {
           activeUser: {...this.user}
+=======
+      data () {
+        return {
+          activeUser: {...this.user}
+        }
+      },
+      computed: {
+        userThreadsCount () {
+          return this.$store.getters['users/userThreadsCount'](this.user['.key'])
+        },
+        userPostsCount () {
+          return this.$store.getters['users/userPostsCount'](this.user['.key'])
+>>>>>>> development1
         }
       },
       methods: {
         save () {
+<<<<<<< HEAD
           this.$store.dispatch('updateUser', {...this.activeUser})
+=======
+          this.$store.dispatch('users/updateUser', {...this.activeUser})
+>>>>>>> development1
           this.$router.push({name: 'Profile'})
         },
         cancel () {
@@ -85,4 +103,8 @@
 </script>
 
 <style scoped>
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> development1

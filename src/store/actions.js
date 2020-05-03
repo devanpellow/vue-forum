@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import firebase from 'firebase'
 
 export default {
@@ -191,12 +192,22 @@ export default {
     })
   },
 
+=======
+
+import firebase from 'firebase'
+
+export default {
+>>>>>>> development1
   fetchItem ({state, commit}, {id, emoji, resource}) {
     console.log('🔥‍', emoji, id)
     return new Promise((resolve, reject) => {
       firebase.database().ref(resource).child(id).once('value', snapshot => {
         commit('setItem', {resource, id: snapshot.key, item: snapshot.val()})
+<<<<<<< HEAD
         resolve(state[resource][id])
+=======
+        resolve(state[resource].items[id])
+>>>>>>> development1
       })
     })
   },
