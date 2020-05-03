@@ -34,14 +34,10 @@
 
     <div class="text-center">
       <hr>
-<<<<<<< HEAD
-      <router-link :to="{name: 'ProfileEdit'}" class="btn-green btn-small" >
-=======
       <router-link
         :to="{name: 'ProfileEdit'}"
         class="btn-green btn-small"
       >
->>>>>>> development1
         Edit Profile
       </router-link>
     </div>
@@ -59,25 +55,14 @@
       },
       computed: {
         userThreadsCount () {
-<<<<<<< HEAD
-          return this.$store.getters.userThreadsCount(this.user['.key'])
-        },
-        userPostsCount () {
-          return this.$store.getters.userPostsCount(this.user['.key'])
-=======
           return this.$store.getters['users/userThreadsCount'](this.user['.key'])
         },
         userPostsCount () {
           return this.$store.getters['users/userPostsCount'](this.user['.key'])
->>>>>>> development1
         }
       }
     }
 </script>
 
 <style scoped>
-<<<<<<< HEAD
 </style>
-=======
-</style>
->>>>>>> development1

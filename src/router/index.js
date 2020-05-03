@@ -12,12 +12,8 @@ import Register from '@/pages/PageRegister'
 import SignIn from '@/pages/PageSignIn'
 import NotFound from '@/pages/PageNotFound'
 Vue.use(Router)
-<<<<<<< HEAD
-export default new Router({
-=======
 
 const router = new Router({
->>>>>>> development1
   routes: [
     {
       path: '/',
@@ -28,45 +24,6 @@ const router = new Router({
       path: '/category/:id',
       name: 'Category',
       component: Category,
-<<<<<<< HEAD
-      props: true
-    },
-    {
-      path: '/forum/:id',
-      name: 'Forum',
-      component: Forum,
-      props: true
-    },
-    {
-      path: '/thread/create/:forumId',
-      name: 'ThreadCreate',
-      component: ThreadCreate,
-      props: true
-    },
-    {
-      path: '/thread/:id',
-      name: 'ThreadShow',
-      component: ThreadShow,
-      props: true
-    },
-    {
-      path: '/thread/:id/edit',
-      name: 'ThreadEdit',
-      component: ThreadEdit,
-      props: true
-    },
-    {
-      path: '/me',
-      name: 'Profile',
-      component: Profile,
-      props: true
-    },
-    {
-      path: '/me/edit',
-      name: 'ProfileEdit',
-      component: Profile,
-      props: {edit: true}
-=======
       props: true
     },
     {
@@ -108,24 +65,16 @@ const router = new Router({
       component: Profile,
       props: {edit: true},
       meta: { requiresAuth: true }
->>>>>>> development1
     },
     {
       path: '/register',
       name: 'Register',
-<<<<<<< HEAD
-      component: Register
-=======
       component: Register,
       meta: { requiresGuest: true }
->>>>>>> development1
     },
     {
       path: '/signin',
       name: 'SignIn',
-<<<<<<< HEAD
-      component: SignIn
-=======
       component: SignIn,
       meta: { requiresGuest: true }
     },
@@ -137,7 +86,6 @@ const router = new Router({
         store.dispatch('signOut')
           .then(() => next({name: 'Home'}))
       }
->>>>>>> development1
     },
     {
       path: '*',

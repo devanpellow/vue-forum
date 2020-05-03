@@ -18,10 +18,7 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-=======
     import {mapActions} from 'vuex'
->>>>>>> development1
     export default {
       props: {
         threadId: {
@@ -54,10 +51,7 @@
         }
       },
       methods: {
-<<<<<<< HEAD
-=======
         ...mapActions('posts', ['createPost', 'updatePost']),
->>>>>>> development1
         save () {
           this.persist()
             .then(post => {
@@ -73,22 +67,14 @@
             threadId: this.threadId
           }
           this.text = ''
-<<<<<<< HEAD
-          return this.$store.dispatch('createPost', post)
-=======
           return this.createPost(post)
->>>>>>> development1
         },
         update () {
           const payload = {
             id: this.post['.key'],
             text: this.text
           }
-<<<<<<< HEAD
-          return this.$store.dispatch('updatePost', payload)
-=======
           return this.updatePost(payload)
->>>>>>> development1
         },
         persist () {
           return this.isUpdate ? this.update() : this.create()
@@ -98,8 +84,4 @@
 </script>
 
 <style scoped>
-<<<<<<< HEAD
 </style>
-=======
-</style>
->>>>>>> development1

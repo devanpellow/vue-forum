@@ -38,17 +38,10 @@
     },
     computed: {
       repliesCount () {
-<<<<<<< HEAD
-        return this.$store.getters.threadRepliesCount(this.thread['.key'])
-      },
-      user () {
-        return this.$store.state.users[this.thread.userId]
-=======
         return this.$store.getters['threads/threadRepliesCount'](this.thread['.key'])
       },
       user () {
         return this.$store.state.users.items[this.thread.userId]
->>>>>>> development1
       }
     }
   }

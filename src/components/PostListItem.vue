@@ -54,15 +54,6 @@
       },
       computed: {
         user () {
-<<<<<<< HEAD
-          return this.$store.state.users[this.post.userId]
-        },
-        userPostsCount () {
-          return this.$store.getters.userPostsCount(this.post.userId)
-        },
-        userThreadsCount () {
-          return this.$store.getters.userThreadsCount(this.post.userId)
-=======
           return this.$store.state.users.items[this.post.userId]
         },
         userPostsCount () {
@@ -70,15 +61,10 @@
         },
         userThreadsCount () {
           return this.$store.getters['users/userThreadsCount'](this.post.userId)
->>>>>>> development1
         }
       }
     }
 </script>
 
 <style scoped>
-<<<<<<< HEAD
 </style>
-=======
-</style>
->>>>>>> development1
