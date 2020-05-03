@@ -42,19 +42,6 @@
       },
       methods: {
         signIn () {
-<<<<<<< HEAD
-          this.$store.dispatch('signInWithEmailAndPassword', {
-            email: this.form.email,
-            password: this.form.password
-          })
-            .then(() => this.$router.push('/'))
-            .catch(error => alert('🤷‍️' + error.message))
-        },
-        signInWithGoogle () {
-          this.$store.dispatch('signInWithGoogle')
-            .then(() => this.$router.push('/'))
-            .catch(error => alert('🤷‍️' + error.message))
-=======
           this.$store.dispatch('auth/signInWithEmailAndPassword', {
             email: this.form.email,
             password: this.form.password
@@ -70,7 +57,6 @@
         successRedirect () {
           const redirectTo = this.$route.query.redirectTo || {name: 'Home'}
           this.$router.push(redirectTo)
->>>>>>> development1
         }
       },
       created () {

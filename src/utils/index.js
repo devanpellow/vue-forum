@@ -5,10 +5,6 @@ const countObjectProperties = obj => {
   return 0
 }
 
-<<<<<<< HEAD
-export {
-  countObjectProperties
-=======
 const removeEmptyProperties = obj => {
   const objCopy = {...obj}
   Object.keys(objCopy).forEach(key => {
@@ -22,5 +18,4 @@ const removeEmptyProperties = obj => {
 export {
   countObjectProperties,
   removeEmptyProperties
->>>>>>> development1
 }

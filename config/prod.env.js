@@ -3,11 +3,7 @@
 require('dotenv').config()
 
 module.exports = {
-<<<<<<< HEAD
-  NODE_ENV: JSON.stringify(process.env.FIREBASE_NODE),
-=======
   NODE_ENV: '"production"',
->>>>>>> development1
   FIREBASE_API_KEY: JSON.stringify(process.env.FIREBASE_API_KEY),
   FIREBASE_AUTH_DOMAIN: JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),
   FIREBASE_DATABASE_URL: JSON.stringify(process.env.FIREBASE_DATABASE_URL),

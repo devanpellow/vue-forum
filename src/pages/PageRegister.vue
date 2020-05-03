@@ -57,14 +57,6 @@
       },
       methods: {
         register () {
-<<<<<<< HEAD
-          this.$store.dispatch('registerUserWithEmailAndPassword', this.form)
-            .then(() => this.$router.push('/'))
-        },
-        registerWithGoogle () {
-          this.$store.dispatch('signInWithGoogle')
-            .then(() => this.$router.push('/'))
-=======
           this.$store.dispatch('auth/registerUserWithEmailAndPassword', this.form)
             .then(() => this.successRedirect())
         },
@@ -75,7 +67,6 @@
         successRedirect () {
           const redirectTo = this.$route.query.redirectTo || {name: 'Home'}
           this.$router.push(redirectTo)
->>>>>>> development1
         }
       },
       created () {

@@ -20,10 +20,6 @@
 
 <script>
 import {countObjectProperties} from '@/utils'
-<<<<<<< HEAD
-=======
-
->>>>>>> development1
 export default {
   props: {
     forum: {

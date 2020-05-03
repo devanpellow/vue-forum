@@ -4,10 +4,6 @@ export default {
       asyncDataStatus_ready: false
     }
   },
-<<<<<<< HEAD
-=======
-
->>>>>>> development1
   methods: {
     asyncDataStatus_fetched () {
       this.asyncDataStatus_ready = true

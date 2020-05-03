@@ -12,11 +12,7 @@ Vue.component('AppDate', AppDate)
 Vue.config.productionTip = false
 
 // Your web app's Firebase configuration
-<<<<<<< HEAD
-var firebaseConfig = {
-=======
 const config = {
->>>>>>> development1
   apiKey: process.env.FIREBASE_API_KEY,
   authDomain: process.env.FIREBASE_AUTH_DOMAIN,
   databaseURL: process.env.FIREBASE_DATABASE_URL,
@@ -27,21 +23,9 @@ const config = {
   measurementId: process.env.FIREBASE_MEASUREMENT_ID
 }
 // Initialize Firebase
-<<<<<<< HEAD
-firebase.initializeApp(firebaseConfig)
-firebase.analytics()
-
-firebase.auth().onAuthStateChanged(user => {
-  if (user) {
-    store.dispatch('fetchAuthUser')
-  }
-})
-
-=======
 firebase.initializeApp(config)
 firebase.analytics()
 
->>>>>>> development1
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
