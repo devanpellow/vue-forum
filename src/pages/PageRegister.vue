@@ -62,8 +62,8 @@
 </template>
 
 <script>
-    import firebase from 'firebase'
-    import {required, url, email, minLength, helpers as vuelidateHelpers} from 'vuelidate/lib/validators'
+    import {required, url, email, minLength} from 'vuelidate/lib/validators'
+    import {uniqueEmail, uniqueUsername, responseOk, supportedImageFile} from '@/utils/validators'
     export default {
       data () {
         return {
@@ -83,28 +83,12 @@
           },
           username: {
             required,
-            unique (value) {
-              if (!vuelidateHelpers.req(value)) {
-                return true
-              }
-              return new Promise((resolve, reject) => {
-                firebase.database().ref('users').orderByChild('usernameLower').equalTo(value.toLowerCase())
-                  .once('value', snapshot => resolve(!snapshot.exists()))
-              })
-            }
+            unique: uniqueUsername
           },
           email: {
             required,
             email,
-            unique (value) {
-              if (!vuelidateHelpers.req(value)) {
-                return true
-              }
-              return new Promise((resolve, reject) => {
-                firebase.database().ref('users').orderByChild('email').equalTo(value.toLowerCase())
-                  .once('value', snapshot => resolve(!snapshot.exists()))
-              })
-            }
+            unique: uniqueEmail
           },
           password: {
             required,
@@ -112,11 +96,8 @@
           },
           avatar: {
             url,
-            supportedImageFule (value) {
-              const supported = ['jpg', 'jpeg', 'gif', 'png', 'svg']
-              const suffix = value.split('.').pop()
-              return supported.includes(suffix)
-            }
+            supportedImageFile,
+            responseOk
           }
         }
       },
