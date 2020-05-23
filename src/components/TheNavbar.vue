@@ -5,7 +5,7 @@
       :to="{name: 'Home'}"
       class="logo"
     >
-      <img src="../assets/img/vueschool-logo.svg">
+      <img src="../assets/img/laptop-logo.png">
     </router-link>
 
     <div class="btn-hamburger" @click="mobileNavOpen = !mobileNavOpen">
