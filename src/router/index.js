@@ -57,7 +57,14 @@ const router = new Router({
       name: 'Profile',
       component: Profile,
       props: true,
-      meta: { requiresAuth: true }
+      meta: { requiresAuth: true },
+      // beforeEnter (to, from, next) {
+      //   if (store.state.authId) {
+      //     next()
+      //   } else {
+      //     next({name: 'Home'})
+      //   }
+      // }
     },
     {
       path: '/me/edit',

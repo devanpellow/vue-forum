@@ -1,4 +1,3 @@
-
 import Vue from 'vue'
 
 export const makeAppendChildToParentMutation = ({parent, child}) =>

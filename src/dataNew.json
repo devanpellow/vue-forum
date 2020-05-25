@@ -2,33 +2,38 @@
   "categories": {
     "-KpR7vRkiRPpbUd_TVAR": {
       "forums": {
-        "-KpOx5Y4AqRr3sB4Ybwj": "-KpOx5Y4AqRr3sB4Ybwj",
-        "-KsjO4_W3W9Q2Z2UmuPr": "-KsjO4_W3W9Q2Z2UmuPr"
+        "-KpOx5Y4AqRr3sB4Ybwj": "-KpOx5Y4AqRr3sB4Ybwj"
       },
       "name": "Feedback & Information",
       "slug": "feedback-and-information"
     },
     "-KsjPKA6hDuHlQK_lJWO": {
       "forums": {
-        "-KsjPat5MWCx-dkjNVg8": "-KsjPat5MWCx-dkjNVg8",
-        "-KsjPjasLh0TFtZmffEo": "-KsjPjasLh0TFtZmffEo",
-        "-Kvd1Vg_ankLYgrxC50F": "-Kvd1Vg_ankLYgrxC50F",
-        "-KvdCowY9mDvM0EH8Pvs": "-KvdCowY9mDvM0EH8Pvs",
-        "-KvhkEl6F673igPtnbso": "-KvhkEl6F673igPtnbso"
+        "-KpOx5Y4AqRr3sB4Ybwj": "-KpOx5Y4AqRr3sB4Ybwj"
       },
       "name": "Discussions",
       "slug": "discussions"
     },
     "-KvclpNRjpI5W-j0JQGU": {
       "forums": {
-        "-Kvclvu_Qd9QdS9ciqUl": "-Kvclvu_Qd9QdS9ciqUl",
-        "-KvcmOcppNYK8NCesmB9": "-KvcmOcppNYK8NCesmB9"
+        "-KpOx5Y4AqRr3sB4Ybwj": "-KpOx5Y4AqRr3sB4Ybwj"
       },
       "name": "Comedy",
       "slug": "comedy"
     }
   },
-  "forums": {},
+  "forums": {
+    "-KpOx5Y4AqRr3sB4Ybwj": {
+      "categoryId": "-KpR7vRkiRPpbUd_TVAR",
+      "description": "Important announcements about the forum.",
+      "lastPostId": "-KxxU6bYWl-6Xnu9g-56",
+      "name": "Announcements",
+      "slug": "announcements",
+      "threads": {
+        "-KvgjI6bfbWYlbYV5ndr": "-KvgjI6bfbWYlbYV5ndr"
+      }
+    }
+  },
   "moderators": {
     "38St7Q8Zi2N1SPa5ahzssq9kbyp1": "38St7Q8Zi2N1SPa5ahzssq9kbyp1",
     "ALXhxjwgY9PinwNGHpfai6OWyDu2": "ALXhxjwgY9PinwNGHpfai6OWyDu2",
@@ -41,6 +46,43 @@
     "usersCount": 0,
     "usersOnline": 0
   },
-  "threads": {},
-  "users": {}
+  "threads": {
+    "-KvgjI6bfbWYlbYV5ndr": {
+      "contributors": {},
+      "firstPostId": "-KvgjI6bfbWYlbYV5nds",
+      "forumId": "-KpOx5Y4AqRr3sB4Ybwj",
+      "lastPostAt": 1509638822,
+      "posts": {},
+      "publishedAt": 1507210375,
+      "slug": "post-reactions",
+      "title": "Post Reactions",
+      "userId": "ALXhxjwgY9PinwNGHpfai6OWyDu2"
+    }
+  },
+  "users": {
+    "ALXhxjwgY9PinwNGHpfai6OWyDu2": {
+      "avatar": "https://firebasestorage.googleapis.com/v0/b/forum-2a982.appspot.com/o/images%2Favatars%2Frah?alt=media&token=7ad21914-a4f4-4ad0-add6-17e6d3ae9679",
+      "bio": "Now this is a story all about how my life got flipped-turned upside down and I'd like to take a minute just sit right there i'll tell you how I became the prince of a town called Bel-Air.",
+      "email": "rolf@rah.no",
+      "lastVisitAt": 1509628794,
+      "name": "Rolf",
+      "posts": {
+        "-KsjWehQ--apjDBwSBCZ": "-KsjWehQ--apjDBwSBCZ",
+        "-KvcmrN1WpXOUp1yWrJd": "-KvcmrN1WpXOUp1yWrJd",
+        "-KvdFThKmnsu9kXOlS3N": "-KvdFThKmnsu9kXOlS3N",
+        "-KvdFe4GnBBURhuRY5OZ": "-KvdFe4GnBBURhuRY5OZ",
+        "-KvgjI6bfbWYlbYV5nds": "-KvgjI6bfbWYlbYV5nds"
+      },
+      "registeredAt": 1504025541,
+      "threads": {
+        "-KsjWehQ--apjDBwSBCY": "-KsjWehQ--apjDBwSBCY",
+        "-KvcmrN1WpXOUp1yWrJc": "-KvcmrN1WpXOUp1yWrJc",
+        "-KvgjI6bfbWYlbYV5ndr": "-KvgjI6bfbWYlbYV5ndr"
+      },
+      "twitter": "rahaugrahaugrahaugrahaugrahaugrahaugrahaugrahaugrahaugrahaug",
+      "username": "rah",
+      "usernameLower": "rah",
+      "website": "http://rah.no"
+    }
+  }
 }
